@@ -19,11 +19,11 @@ function varTest() {
 }
 
 
-varTest(); // First one will be 31 and the next two will be 71, because we overwrite a global variable
+varTest(); // First one will be 31 and the next two will be 71, because we overwrite a function variable
     
 function letTest() {
 
-    var x = 31;
+    let x = 31;
     
     if (true) {
         let x = 71;               
@@ -33,13 +33,13 @@ function letTest() {
       console.log(x);             // 31
   }
   
-  letTest(); // Fisrt one 71 and second 31, this is because we declare first one in global scope and the next one in local scope.
+  letTest(); // Fisrt one 71 and second 31, this is because we declare first one in function scope and the next one in block scope.
 
 
   function hoistingTest() {
   
       console.log(w); //In this case w will be undefined becaus it's declared without value
-      // console.log(z); // ReferenceError, this is because z is only in local scope, not in global.
+      // console.log(z); // ReferenceError, this is because z is only in block scope, not in function.
   
       var x = 31;
       let y = 91;
@@ -59,7 +59,7 @@ function letTest() {
     }
 
 hoistingTest(); //It is a complex example but same theory of last one, the variables, declare with var,
-                //are declared in the global scope and next time you write the same variable this ones will be overwritten.
-                //Meanwhile the variables declare with let only save in the local scope, and prevail the local scope.
+                //are declared in the function scope and next time you write the same variable this ones will be overwritten.
+                //Meanwhile the variables declare with let only save in the block scope, and prevail the block scope.
 
-console.log(u);   //without any type, javascript declare in global scope.
+console.log(u);   //without any type, javascript declare in function scope.
