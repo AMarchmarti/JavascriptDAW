@@ -47,6 +47,6 @@ function inherit(p) {
 
 
 var q = inherit(p);     // Create a new object that inherits getters and setters
-q.x = 0, q.y = 0;       // Create q's own data properties
+q.x = 1, q.y = 1;       // Create q's own data properties
 console.log(q.r);       // And use the inherited accessor properties
 console.log(q.theta);

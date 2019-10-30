@@ -66,7 +66,7 @@ for(property in q) {
 }
 
 // Returns {value: 2, writable:true, enumerable:true, configurable:true}
-console.log(Object.getOwnPropertyDescriptor(p, "x"));
+console.log(Object.getOwnPropertyDescriptor(q, "x"));
 
 // Returns {value: 1, writable:true, enumerable:false, configurable:true}
 console.log(Object.getOwnPropertyDescriptor(p, "z"));

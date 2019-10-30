@@ -26,8 +26,8 @@ console.log(book["main title"]);
 
 // propiedades owned y heradadas: qué sucede al eliminarlas?
 
-o = {x:1};          // o has own property x and inherits property toString
-delete o.x;         // Delete x, and return true
+o = {x:1};          // o has own property x and inherits property toString 
+delete o.x;         // Delete x, and return true 
 delete o.x;         // Do nothing (x doesn't exist), and return true
 delete o.toString;  // Do nothing (toString isn't an own property), return true
 delete 1;           // Nonsense, but evaluates to true

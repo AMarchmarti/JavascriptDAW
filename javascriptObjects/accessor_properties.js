@@ -45,7 +45,7 @@ var p = {
 };
 
 console.log("actual r = " + p.r);
-p.r =2;
+p.r =3;
 console.log("new r = " + p.r);
 console.log("actual x is not 1: " + p.x);
 console.log("theta : " + p.theta);

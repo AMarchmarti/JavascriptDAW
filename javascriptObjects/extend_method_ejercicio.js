@@ -17,6 +17,29 @@ var q = {};
  * tu codigo aqui
  */
 
+Object.defineProperty(q, "extend",
+// Define Object.prototype.extend
+{
+    writable: true,
+    // Make it nonenumerable
+    enumerable: false,
+    configurable: true,
+    value: function(o) {
+        // Its value is this function
+        // Get all own props, even nonenumerable ones
+        var names = Object.getOwnPropertyNames(o);
+        // Loop through them
+        for(var i = 0; i < names.length; i++) {
+            // Skip props already in this object
+            if (names[i] in this) continue;
+            // Get property description from o
+            var desc = Object.getOwnPropertyDescriptor(o,names[i]);
+            // Use it to create property on this
+            Object.defineProperty(this, names[i], desc);
+        }
+    }
+});
+
 var p = Object.defineProperties({}, {
             x: { value: 1, writable: true, enumerable:true, configurable:true },
             y: { value: 1, writable: true, enumerable:true, configurable:true },
@@ -46,7 +69,7 @@ for(property in q) {
 }
 
 // Returns {value: 2, writable:true, enumerable:true, configurable:true}
-console.log(Object.getOwnPropertyDescriptor(p, "x"));
+console.log(Object.getOwnPropertyDescriptor(q, "x"));
 
 // Returns {value: 1, writable:true, enumerable:false, configurable:true}
 console.log(Object.getOwnPropertyDescriptor(p, "z"));
